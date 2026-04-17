@@ -9,8 +9,7 @@ El objetivo principal del proyecto es poder segmentar México en base a la base 
 
 La aplicación descarga el dataset del INEGI (1,155 registros, 32 entidades, 34 años) y genera dos consultas:
 
-- **Top 5 entidades** con la tasa de homicidios más alta por cada año
-- **Michoacán** — evolución histórica de homicidios clasificados por hombres y mujeres
+- **Estudio de violencia en las entidades** con la tasa de homicidios más alta por cada año
 
 Los resultados se presentan en tablas directamente en el navegador.
 
