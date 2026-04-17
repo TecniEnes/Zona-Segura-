@@ -1,3 +1,9 @@
+# Proyecto Tecni Enes 
+
+Zona-Segura-
+El objetivo principal del proyecto es poder segmentar México en base a la base de datos Homicidios dolosos registrados en México por Entidad.
+
+
 # Proyecto Cómputo en la Nube — Django en AWS EC2
 
 Guía paso a paso para desplegar una aplicación Django en una instancia EC2 de AWS, incluyendo un ejercicio de consulta de datos abiertos sobre homicidios dolosos en México (1990–2024).
