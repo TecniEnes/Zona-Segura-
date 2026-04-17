@@ -13,7 +13,7 @@ Descripción:
     3. Tasas de homicidios en Michoacán por año (hombres y mujeres)
 """
 
-
+http://100.26.61.153:6285/polls/
 # Proyecto Cómputo en la Nube — Django en AWS EC2
 
 Guía paso a paso para desplegar una aplicación Django en una instancia EC2 de AWS, incluyendo un ejercicio de consulta de datos abiertos sobre homicidios dolosos en México (1990–2024).
