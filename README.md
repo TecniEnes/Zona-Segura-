@@ -19,6 +19,13 @@ Los resultados se presentan en tablas directamente en el navegador. Se muestra e
 
 ---
 
+## Próximos Pasos: Segmentación de Michoacán
+Para evolucionar el proyecto hacia un análisis local profundo, se han definido los siguientes objetivos inmediatos:
+
+1.  **Ampliación del Dataset:** Descarga e integración de nuevas bases de datos con microdatos delictivos que permitan bajar el nivel de análisis de "Entidad" a "Región", "Municipio" y "Codigo postal".
+2.  **Segmentación Regional:** Clasificación técnica de Michoacán por sus regiones socioeconómicas para identificar patrones de violencia específicos.
+3.  **Visualización Geoespacial:** Implementación de un **mapa de calor (coroplético)** interactivo. Este mapa representará visualmente los índices de violencia, permitiendo distinguir las zonas de mayor riesgo dentro del estado mediante intensidades de color.
+
 ## Fuente de datos
 
 | Campo | Descripción |
