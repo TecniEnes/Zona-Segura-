@@ -19,6 +19,17 @@ def index(request):
 class MyUserView(View):
 	form_class = MyUserForm
 	template_name = 'plugin/info.html'
+	
+	def get(self,request, *args, **kwargs):
+		id_key = self.kwangs['id']
+		try:
+			data= MyUser.objects.get(id=id_key)
+			form= self.form_class(instance=data)
+		except MyUser.DoesNotExist:
+			form=self.form_class(initial=self.initial)
+			#paciente_count = Paciente.objects.filter()
+			id_key = 0 
+			return  render(request, self.template_name, {'form':form,'isbn':isbn})
 
 	###@method_decorator(login_required)
 	def dispatch(self,*args,**kwargs):
