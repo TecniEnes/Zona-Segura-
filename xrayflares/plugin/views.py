@@ -7,6 +7,6 @@ from datetime import datetime
 def index(request):
 	data= Flux.objects.values()
 	now = datetime.now()
-	flux = Flux(now, 1.0)
+	flux = Flux(now, 1.0,"hello")
 	flux.save()
-	return HttpResponse(data.content_type='application/json')
+	return HttpResponse(data,content_type='application/json')
