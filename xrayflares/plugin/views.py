@@ -19,9 +19,10 @@ def index(request):
 class MyUserView(View):
 	form_class = MyUserForm
 	template_name = 'plugin/info.html'
-	
+	initial = {'key':'value'}
+
 	def get(self,request, *args, **kwargs):
-		id_key = self.kwangs['id']
+		id_key = self.kwangs['id_key']
 		try:
 			data= MyUser.objects.get(id=id_key)
 			form= self.form_class(instance=data)
@@ -29,10 +30,10 @@ class MyUserView(View):
 			form=self.form_class(initial=self.initial)
 			#paciente_count = Paciente.objects.filter()
 			id_key = 0 
-			return  render(request, self.template_name, {'form':form,'isbn':isbn})
+		return  render(request, self.template_name, {'form':form,'id_key':id_key})
 
 	###@method_decorator(login_required)
 	def dispatch(self,*args,**kwargs):
-		return super(Book_View, self).dispatch(*args, **kwargs)
+		return super(MyUserView, self).dispatch(*args, **kwargs)
 	#return HttpResponse(data,content_type='application/json')
 	
