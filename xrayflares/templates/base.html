@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Mi Sitio{% endblock %}</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <!-- Estilos extra por página -->
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">
+        {% block brand %}Mi Sitio{% endblock %}
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMain"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% block nav_items %}
+          <li class="nav-item">
+            <a class="nav-link" href="/">Inicio</a>
+          </li>
+          {% endblock %}
+        </ul>
+
+        <!-- Zona de usuario (login/logout) -->
+        <div class="d-flex align-items-center gap-2">
+          {% block nav_auth %}
+          {% if user.is_authenticated %}
+            <span class="text-light small">{{ user.username }}</span>
+            <a href="{% url 'logout' %}" class="btn btn-outline-light btn-sm">Salir</a>
+          {% else %}
+          
+          {% endif %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MENSAJES FLASH ===== -->
+  {% if messages %}
+  <div class="container mt-3">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main class="container my-4">
+
+    {% block breadcrumb %}{% endblock %}
+
+    {% block content %}
+    <p class="text-muted">Contenido de la página aquí.</p>
+    {% endblock %}
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark text-light py-4 mt-auto">
+    <div class="container">
+      {% block footer %}
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0 small">&copy; {% now "Y" %} Mi Sitio. Todos los derechos reservados.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          {% block footer_links %}{% endblock %}
+        </div>
+      </div>
+      {% endblock %}
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Scripts extra por página -->
+  {% block extra_js %}{% endblock %}
+
+</body>
+</html>

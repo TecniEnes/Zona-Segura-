@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse 
 from .models import Flux
 from datetime import datetime
+from .models import MyUser
 from .forms import MyUserForm
 from datetime import datetime
 from django.views.generic import View
@@ -22,7 +23,7 @@ class MyUserView(View):
 	initial = {'key':'value'}
 
 	def get(self,request, *args, **kwargs):
-		id_key = self.kwangs['id_key']
+		id_key = self.kwargs['isbn']
 		try:
 			data= MyUser.objects.get(id=id_key)
 			form= self.form_class(instance=data)
