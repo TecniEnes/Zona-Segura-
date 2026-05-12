@@ -4,8 +4,10 @@
 
 {% block content %}
 
-{{ form }}
-
+form method="post" action="/plugin/{{(id_key)}}/api/" enctype="multipart/form-data">{% csrf_token %}
+{{form}}
+<button type="submit" name"save_page_button" class="btn- btn-success">Guardar</button>
+<input type="submit" value="Cancelar" name="cancel_page_button" class="btn btn-danger" formnovalidate>
 {% endblock %}
 
 
